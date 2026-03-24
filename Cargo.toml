@@ -1,0 +1,18 @@
+[package]
+name = "lojix-macros"
+version = "0.1.0"
+edition = "2024"
+description = "Proc macros for deriving typed Rust code from samskara's datalog schema"
+authors = ["Li Goldragon <li@goldragon.criome.net>"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+criome-cozo = { path = "flake-crates/criome-cozo" }
+samskara-codegen = { path = "flake-crates/samskara-codegen" }
+samskara-core = { path = "flake-crates/samskara-core" }
+syn = { version = "2", features = ["full"] }
+quote = "1"
+proc-macro2 = "1"
+serde_json = "1.0"
