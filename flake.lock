@@ -1,0 +1,201 @@
+{
+  "nodes": {
+    "crane": {
+      "locked": {
+        "lastModified": 1774313767,
+        "narHash": "sha256-hy0XTQND6avzGEUFrJtYBBpFa/POiiaGBr2vpU6Y9tY=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "3d9df76e29656c679c744968b17fbaf28f0e923d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "criome-cozo-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774255546,
+        "narHash": "sha256-hpDxRqmFHE024iyW35IfD16EteTKVo+nmOxIl6cLlyQ=",
+        "owner": "LiGoldragon",
+        "repo": "criome-cozo",
+        "rev": "82d338fbe1767afb42f00b7e9ab973f47c852a0a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LiGoldragon",
+        "repo": "criome-cozo",
+        "type": "github"
+      }
+    },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1774336807,
+        "narHash": "sha256-9Wu6fqKbjHBh//Rlx0p/jFVobZwgvBlBov2W2H1kfAI=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "2b5c85b86be24ff24e9586a56101e22f90ead9d4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1774273680,
+        "narHash": "sha256-a++tZ1RQsDb1I0NHrFwdGuRlR5TORvCEUksM459wKUA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "fdc7b8f7b30fdbedec91b71ed82f36e1637483ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "noesis-schema-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774357410,
+        "narHash": "sha256-txi3cloYtU/rTvbRZO0KVFUgN630DzPz6+5bdPrgnMo=",
+        "owner": "LiGoldragon",
+        "repo": "noesis-schema",
+        "rev": "b0a66890ec6eea71997c520619f4e923f05800ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LiGoldragon",
+        "repo": "noesis-schema",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "crane": "crane",
+        "criome-cozo-src": "criome-cozo-src",
+        "fenix": "fenix",
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "noesis-schema-src": "noesis-schema-src",
+        "samskara-codegen-src": "samskara-codegen-src",
+        "samskara-core-src": "samskara-core-src",
+        "samskara-src": "samskara-src"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774276450,
+        "narHash": "sha256-B+2C4/9l+ggImtYBwbzEDY3v9DFcDS7hNGDUI+E460o=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "da2fe7fed8960a4e351818d52bf444d7c9569da7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "samskara-codegen-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774355423,
+        "narHash": "sha256-OHqHeqhbnJ4haWCUREdxS1/8/GsJjpnnFxwCAo8Ud1M=",
+        "owner": "LiGoldragon",
+        "repo": "samskara-codegen",
+        "rev": "a41d96d1f99e247c729ce06f721a36c74445e0db",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LiGoldragon",
+        "repo": "samskara-codegen",
+        "type": "github"
+      }
+    },
+    "samskara-core-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774255544,
+        "narHash": "sha256-hElGqxnuP1ndtDv7GDEm2jbyYhdAKuQZkxnwKp/Xr5M=",
+        "owner": "LiGoldragon",
+        "repo": "samskara-core",
+        "rev": "4c5711bf5c9b0e47ec1ff13bfb224802d64938bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LiGoldragon",
+        "repo": "samskara-core",
+        "type": "github"
+      }
+    },
+    "samskara-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774359920,
+        "narHash": "sha256-4tvJXkvu+vtxTr5e9oXfj35IkNlSKkx4z1tTv8hZ9II=",
+        "owner": "LiGoldragon",
+        "repo": "samskara",
+        "rev": "38e06eb81d323ba59d96927d959d0ff608054f44",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LiGoldragon",
+        "repo": "samskara",
+        "type": "github"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

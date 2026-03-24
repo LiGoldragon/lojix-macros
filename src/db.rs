@@ -7,11 +7,12 @@ use std::sync::OnceLock;
 static DB: OnceLock<Result<criome_cozo::CriomeDb, String>> = OnceLock::new();
 
 /// Schema files embedded at compile time.
-const SAMSKARA_WORLD_INIT: &str = include_str!("../flake-crates/samskara/schema/samskara-world-init.cozo");
-const SAMSKARA_WORLD_SEED: &str = include_str!("../flake-crates/samskara/schema/samskara-world-seed.cozo");
-const NOESIS_WORLD_INIT: &str = include_str!("../flake-crates/noesis-schema/noesis-world-init.cozo");
-const NOESIS_WORLD_SEED: &str = include_str!("../flake-crates/noesis-schema/noesis-world-seed.cozo");
-const NOESIS_FIELD_TYPE_SEED: &str = include_str!("../flake-crates/noesis-schema/noesis-field-type-seed.cozo");
+/// Uses CARGO_MANIFEST_DIR so paths resolve correctly both standalone and as a workspace member.
+const SAMSKARA_WORLD_INIT: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/flake-crates/samskara/schema/samskara-world-init.cozo"));
+const SAMSKARA_WORLD_SEED: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/flake-crates/samskara/schema/samskara-world-seed.cozo"));
+const NOESIS_WORLD_INIT: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/flake-crates/noesis-schema/noesis-world-init.cozo"));
+const NOESIS_WORLD_SEED: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/flake-crates/noesis-schema/noesis-world-seed.cozo"));
+const NOESIS_FIELD_TYPE_SEED: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/flake-crates/noesis-schema/noesis-field-type-seed.cozo"));
 
 pub struct FieldInfo {
     pub name: String,
