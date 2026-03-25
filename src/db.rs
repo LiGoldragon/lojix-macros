@@ -1,5 +1,5 @@
 //! Database loading for proc-macro expansion time.
-//! Boots an in-memory CozoDB with samskara-core + noesis-schema,
+//! Boots an in-memory CozoDB with samskara-core + sema-core + sema + noesis-schema,
 //! then queries it for domain variants, field types, and RPC interfaces.
 
 use std::sync::OnceLock;
@@ -62,6 +62,46 @@ fn init_db() -> Result<criome_cozo::CriomeDb, Box<dyn std::error::Error>> {
         let trimmed = stmt.trim();
         if !trimmed.is_empty() && !is_comment_only(trimmed) {
             db.run_script(trimmed).map_err(|e| format!("samskara seed: {e}"))?;
+        }
+    }
+
+    // Load sema-core (generators, astrological domains, structure, Name)
+    for stmt in criome_cozo::Script::from_str(sema_core::INIT) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("sema-core init: {e}"))?;
+        }
+    }
+    for stmt in criome_cozo::Script::from_str(sema_core::SEED) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("sema-core seed: {e}"))?;
+        }
+    }
+    for stmt in criome_cozo::Script::from_str(sema_core::FIELD_SEED) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("sema-core field: {e}"))?;
+        }
+    }
+
+    // Load sema language layer (programming logic, protocol, testing)
+    for stmt in criome_cozo::Script::from_str(sema::INIT) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("sema init: {e}"))?;
+        }
+    }
+    for stmt in criome_cozo::Script::from_str(sema::SEED) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("sema seed: {e}"))?;
+        }
+    }
+    for stmt in criome_cozo::Script::from_str(sema::FIELD_SEED) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("sema field: {e}"))?;
         }
     }
 
