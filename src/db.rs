@@ -65,7 +65,27 @@ fn init_db() -> Result<criome_cozo::CriomeDb, Box<dyn std::error::Error>> {
         }
     }
 
-    // Load sema-core (generators, astrological domains, structure, Name)
+    // Load noesis schema (creates Direction, Name, units, field_type, etc.)
+    for stmt in criome_cozo::Script::from_str(NOESIS_WORLD_INIT) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("noesis init: {e}"))?;
+        }
+    }
+    for stmt in criome_cozo::Script::from_str(NOESIS_WORLD_SEED) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("noesis seed: {e}"))?;
+        }
+    }
+    for stmt in criome_cozo::Script::from_str(NOESIS_FIELD_TYPE_SEED) {
+        let trimmed = stmt.trim();
+        if !trimmed.is_empty() && !is_comment_only(trimmed) {
+            db.run_script(trimmed).map_err(|e| format!("field_type seed: {e}"))?;
+        }
+    }
+
+    // Load sema-core (new generators, structure, Name mapping)
     for stmt in criome_cozo::Script::from_str(sema_core::INIT) {
         let trimmed = stmt.trim();
         if !trimmed.is_empty() && !is_comment_only(trimmed) {
@@ -102,26 +122,6 @@ fn init_db() -> Result<criome_cozo::CriomeDb, Box<dyn std::error::Error>> {
         let trimmed = stmt.trim();
         if !trimmed.is_empty() && !is_comment_only(trimmed) {
             db.run_script(trimmed).map_err(|e| format!("sema field: {e}"))?;
-        }
-    }
-
-    // Load noesis schema (field_type, translation, new domains, etc.)
-    for stmt in criome_cozo::Script::from_str(NOESIS_WORLD_INIT) {
-        let trimmed = stmt.trim();
-        if !trimmed.is_empty() && !is_comment_only(trimmed) {
-            db.run_script(trimmed).map_err(|e| format!("noesis init: {e}"))?;
-        }
-    }
-    for stmt in criome_cozo::Script::from_str(NOESIS_WORLD_SEED) {
-        let trimmed = stmt.trim();
-        if !trimmed.is_empty() && !is_comment_only(trimmed) {
-            db.run_script(trimmed).map_err(|e| format!("noesis seed: {e}"))?;
-        }
-    }
-    for stmt in criome_cozo::Script::from_str(NOESIS_FIELD_TYPE_SEED) {
-        let trimmed = stmt.trim();
-        if !trimmed.is_empty() && !is_comment_only(trimmed) {
-            db.run_script(trimmed).map_err(|e| format!("field_type seed: {e}"))?;
         }
     }
 
